@@ -10,7 +10,7 @@ export default function DashboardLayout({ sidebar }) {
       </aside>
 
       {/* Main Panel */}
-      <main className="flex-1 p-6">
+      <main className="flex-1">
         <Outlet /> {/* <-- Child routes render here */}
       </main>
 

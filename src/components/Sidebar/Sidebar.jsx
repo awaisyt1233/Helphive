@@ -67,7 +67,7 @@ export default function Sidebar({
       </Link>
 
       <Link
-        to="/"
+        to="/submit-complaint"
         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-300
         ${currentPath === "/submit-complaint" ? "bg-[#1C398E] text-white font-bold" : "text-gray-700 hover:bg-gray-200 hover:text-gray-900"}`}
       >
@@ -146,7 +146,8 @@ export default function Sidebar({
       )}
 
       {/* DESKTOP SIDEBAR */}
-      <div className="hidden lg:flex lg:w-64 bg-white border-r border-gray-200 flex-col justify-between">
+      <div className="hidden lg:flex lg:w-64 bg-white border-r border-gray-200 flex-col justify-between h-screen
+     fixed top-0 left-0 z-40">
         <SidebarContent />
       </div>
     </>
