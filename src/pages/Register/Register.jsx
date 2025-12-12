@@ -31,6 +31,7 @@ export default function SignupPage() {
             placeholder="John Doe"
             className="w-full mt-1 p-3 border rounded-xl bg-gray-50 
                        focus:outline-none focus:ring-2 focus:ring-blue-900"
+                       
           />
         </div>
 
