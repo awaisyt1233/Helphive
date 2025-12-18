@@ -7,6 +7,7 @@ import LoginPage from "./pages/Login/Login";
 import SignupPage from "./pages/Register/Register";
 import Profile from "./pages/Profile/Profile";
 import SubmitComplaint from "./pages/SubmitComplaint/SubmitComplaint";
+import Notifications from "./pages/Notification/Notification";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/my-complaints" element={<MyComplaints />} />
           <Route path="/submit-complaint" element={<SubmitComplaint />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/notifications" element={<Notifications />} />
 
         </Route>
         <Route path="/login" element={<LoginPage />} />

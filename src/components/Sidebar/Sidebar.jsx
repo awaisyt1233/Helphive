@@ -76,7 +76,7 @@ export default function Sidebar({
       </Link>
 
       <Link
-        to="/"
+        to="/my-complaints"
         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-300
         ${currentPath === "/my-complaints" ? "bg-[#1C398E] text-white font-bold" : "text-gray-700 hover:bg-gray-200 hover:text-gray-900"}`}
       >
@@ -85,7 +85,7 @@ export default function Sidebar({
       </Link>
 
       <Link
-        to="/"
+        to="/notifications"
         className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-300
         ${currentPath === "/notifications" ? "bg-[#1C398E] text-white font-bold" : "text-gray-700 hover:bg-gray-200 hover:text-gray-900"}`}
       >
