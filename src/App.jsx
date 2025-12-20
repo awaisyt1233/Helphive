@@ -8,6 +8,14 @@ import SignupPage from "./pages/Register/Register";
 import Profile from "./pages/Profile/Profile";
 import SubmitComplaint from "./pages/SubmitComplaint/SubmitComplaint";
 import Notifications from "./pages/Notification/Notification";
+import AdminLayout from "./Admin/Components/Layout";
+import AdminSidebar from "./Admin/Components/Sidebar";
+import AdminDashboard from "./Admin/Pages/AdminDashboard";
+import Analytics from "./Admin/Pages/Analytics";
+import ManageUsers from "./Admin/Pages/ManageUsers";
+import Notification from "./Admin/Pages/Notifications";
+import AdminProfile from "./Admin/Pages/Profile";
+
 
 function App() {
   return (
@@ -19,11 +27,17 @@ function App() {
           <Route path="/submit-complaint" element={<SubmitComplaint />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/notifications" element={<Notifications />} />
-
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
 
+        <Route element={<AdminLayout sidebar={<AdminSidebar />} />}>
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/analytics" element={<Analytics />} />
+          <Route path="/admin/manage-users" element={<ManageUsers />} />
+          <Route path="/admin/notifications" element={<Notification />} />
+          <Route path="/admin/profile" element={<AdminProfile />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

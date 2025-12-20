@@ -1,7 +1,5 @@
 import {
   LayoutDashboard,
-  FileText,
-  List,
   Bell,
   User,
   BarChart3,
@@ -12,45 +10,38 @@ import {
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Sidebar({ userRole, onLogout }) {
+export default function Sidebar({ onLogout }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
 
-  // Define menu items for student and admin
-  const studentMenuItems = [
-    { icon: LayoutDashboard, label: "Dashboard", page: "/student-dashboard" },
-    { icon: FileText, label: "Submit Complaint", page: "/submit-complaint" },
-    { icon: List, label: "My Complaints", page: "/my-complaints" },
-    { icon: Bell, label: "Notifications", page: "/notifications" },
-    { icon: User, label: "Profile", page: "/profile" },
-  ];
-
+  // ADMIN MENU ONLY
   const adminMenuItems = [
-    { icon: LayoutDashboard, label: "Dashboard", page: "/admin-dashboard" },
-    { icon: BarChart3, label: "Analytics", page: "/analytics" },
-    { icon: User, label: "Manage Users", page: "/manage-users" },
-    { icon: Bell, label: "Notifications", page: "/admin-notifications" },
+    { icon: LayoutDashboard, label: "Dashboard", page: "/admin" },
+    { icon: BarChart3, label: "Analytics", page: "/admin/analytics" },
+    { icon: User, label: "Manage Users", page: "/admin/manage-users" },
+    { icon: Bell, label: "Notifications", page: "/admin/notifications" },
     { icon: User, label: "Profile", page: "/profile" },
   ];
-
-  const menuItems = userRole === "admin" ? adminMenuItems : studentMenuItems;
 
   const SidebarContent = () => (
     <>
       {/* LOGO */}
-      <div className="p-6 border-b border-gray-200 flex items-center justify-center h-24">
+      <div className="p-6 border-b border-gray-200 flex flex-col items-center justify-center h-24">
         <img
-          src="Logo.png"
+          src="/Logo.png"
           alt="University Logo"
           className="object-contain"
-          style={{ width: "135px", height: "auto" }}
+          style={{ width: "180px", height: "auto" }}
         />
+        <span className="mt-2 text-sm font-semibold text-gray-700 tracking-wide">
+          Admin Panel
+        </span>
       </div>
 
       {/* MENU ITEMS */}
       <div className="flex-1 p-4 space-y-1">
-        {menuItems.map((item) => (
+        {adminMenuItems.map((item) => (
           <Link
             key={item.label}
             to={item.page}
@@ -67,7 +58,7 @@ export default function Sidebar({ userRole, onLogout }) {
         ))}
       </div>
 
-      {/* LOGOUT BUTTON */}
+      {/* LOGOUT */}
       <div className="p-4 border-t border-gray-200">
         <button
           onClick={onLogout}
@@ -82,7 +73,7 @@ export default function Sidebar({ userRole, onLogout }) {
 
   return (
     <>
-      {/* MOBILE MENU TOGGLE */}
+      {/* MOBILE MENU BUTTON */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg"
